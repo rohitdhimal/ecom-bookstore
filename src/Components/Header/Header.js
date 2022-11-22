@@ -1,4 +1,5 @@
 import { Fragment } from 'react'
+import { NavLink } from 'react-router-dom';
 
 import './Header.css';
 
@@ -8,9 +9,15 @@ const Header = () => {
       <nav className="fixed top-0 left-0 bg-gray-100 w-full shadow">
         <div className="container ml-10 flex justify-between items-center text-gray-700">
           <ul className="hidden md:flex items-center text-base font-semibold cursor-pointer">
-            <li className="hover:bg-gray-200 py-4 px-6">Home</li>
-            <li className="hover:bg-gray-200 py-4 px-6">Products</li>
-            <li className="hover:bg-gray-200 py-4 px-6">Cart</li>
+            <li className="hover:bg-gray-200 py-4 px-6">
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li className="hover:bg-gray-200 py-4 px-6">
+              <NavLink to="/Products">Products</NavLink>
+            </li>
+            <li className="hover:bg-gray-200 py-4 px-6">
+              <a href="/Cart">Cart </a>
+            </li>
           </ul>
           <button className="block md:hidden py-3 px-4 mx-2 rounded focus:outline-none hover:bg-gray-200 group">
             <div className="w-5 h-1 bg-gray-600 mb-1"></div>
@@ -26,7 +33,6 @@ const Header = () => {
           </button>
         </div>
       </nav>
-
     </Fragment>
   );
 }
