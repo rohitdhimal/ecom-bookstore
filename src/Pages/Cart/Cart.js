@@ -1,11 +1,61 @@
 import { Fragment } from "react";
 import Header from "../../Components/Header/Header";
 
-
+import { useSelector, useDispatch } from "react-redux";
+import {
+  selectCartItems,
+  removeFromCart
+} from "../../Features/BookStoreSlice";
 
 import "./Cart.css";
 
 const Cart = () => {
+  const CartItemsFromStore = useSelector(selectCartItems);
+  const dispatch = useDispatch();
+  const CartElements = CartItemsFromStore.map((item, index) => (
+    <li className="flex py-6" key={item.Item.book_id}>
+      <div className="h-30 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+        <img
+          src={item.Item.image}
+          alt={item.Item.title}
+          className="h-30 w-full object-cover object-center "
+        />
+      </div>
+
+      <div className="ml-4 flex flex-1 flex-col">
+        <div>
+          <div className="flex justify-between text-base font-medium text-gray-900">
+            <h3>
+              <a href="/">{item.Item.title}</a>
+            </h3>
+            <p className="ml-4">item.Item.price</p>
+          </div>
+          <div className="flex justify-between text-base font-medium text-gray-900">
+            <p className="mt-1 text-sm text-gray-500">
+              Price: {item.Item.Author}
+            </p>
+            <p className="mt-1 text-sm text-gray-500">
+              Quantity: {item.Count}
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-1 items-end justify-between text-sm">
+          <div className="flex">
+            <button
+              onClick={() => {
+                  dispatch(removeFromCart({ book_id: item.Item.book_id }));
+                }
+              }
+              type="button"
+              className="font-medium text-indigo-600 hover:text-indigo-500"
+            >
+              Remove
+            </button>
+          </div>
+        </div>
+      </div>
+    </li>
+  ));
   return (
     <Fragment>
       <Header />
@@ -21,42 +71,9 @@ const Cart = () => {
             <div className="">
               <div className="flow-root">
                 <ul className="-my-6 divide-y divide-gray-200">
-                  <li className="flex py-6">
-                    <div className="h-30 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                      <img
-                        src="https://m.media-amazon.com/images/I/61l+VmohEOL._AC_SY780_.jpg"
-                        alt="asd"
-                        className="h-30 w-full object-cover object-center "
-                      />
-                    </div>
-
-                    <div className="ml-4 flex flex-1 flex-col">
-                      <div>
-                        <div className="flex justify-between text-base font-medium text-gray-900">
-                          <h3>
-                            <a href="/">Book Name</a>
-                          </h3>
-                          <p className="ml-4">Price</p>
-                        </div>
-                        <div className="flex justify-between text-base font-medium text-gray-900">
-                          <p className="mt-1 text-sm text-gray-500">
-                            Book Author
-                          </p>
-                          <p className="mt-1 text-sm text-gray-500">Quantity</p>
-                        </div>
-                      </div>
-                      <div className="flex flex-1 items-end justify-between text-sm">
-                        <div className="flex">
-                          <button
-                            type="button"
-                            className="font-medium text-indigo-600 hover:text-indigo-500"
-                          >
-                            Remove
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
+                  {
+                    Object.keys(CartElements).length ? CartElements : "No Items in Cart"
+                  }
                 </ul>
               </div>
               <div className="border-t border-gray-200 py-6 px-4 sm:px-6"></div>

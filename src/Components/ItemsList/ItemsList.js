@@ -1,13 +1,20 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import ProductList from "../../FakeData/ProductsList";
 
+import { useSelector, useDispatch } from "react-redux";
+import { selectBookList, storeBookList, addCartItemsFromMinimal } from "../../Features/BookStoreSlice";
+
 import "./ItemsList.css";
+import Product from "../../Pages/Product/Product";
 
 const ItemsList = () => {
-  const ProductListElements = ProductList.map((item) => (
-    <div className="basis-1/4">
+  const dispatch = useDispatch();
+  const ProductListFromStore = useSelector(selectBookList);
+
+  const ProductListElements = ProductListFromStore.map((item) => (
+    <div className="basis-1/4" key={item.book_id}>
       <NavLink to={`/product/${item.book_id}`}>
         <div className=" bg-white  rounded-lg px-8 py-8 ring-1 ring-slate-900/5 shadow-xl ">
           <div>
@@ -26,13 +33,20 @@ const ItemsList = () => {
             </span>
           </h3>
           <p className="text-slate-500 mt-2 text-sm">{item.Author}</p>
-          <button className="mt-2 rounded-lg px-4 py-2 bg-green-900 text-neutral-50 hover:bg-green-700 duration-300 hover:shadow-lg">
+          <button
+            onClick={() => {
+              dispatch(addCartItemsFromMinimal({book_id:item.book_id}))
+            }} 
+            className="mt-2 rounded-lg px-4 py-2 bg-green-900 text-neutral-50 hover:bg-green-700 duration-300 hover:shadow-lg">
             Add to Cart
           </button>
         </div>
       </NavLink>
     </div>
   ));
+  useEffect(() => {
+    dispatch(storeBookList(ProductList))
+  },[ProductList]);
   return (
     <Fragment>
       <div className="container mt-20 px-20 mb-10">
