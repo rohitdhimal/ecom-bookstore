@@ -21,6 +21,9 @@ const ItemsList = () => {
           </div>
           <h3 className="text-green-900 mt-5 text-xl font-bold tracking-tight">
             {item.title}
+            <span style={{"float":"right"}}>
+              {item.price}
+            </span>
           </h3>
           <p className="text-slate-500 mt-2 text-sm">{item.Author}</p>
           <button className="mt-2 rounded-lg px-4 py-2 bg-green-900 text-neutral-50 hover:bg-green-700 duration-300 hover:shadow-lg">

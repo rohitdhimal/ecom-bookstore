@@ -12,7 +12,7 @@ const ProductList = [
     book_id: "2",
     Author: "Nicolas Sparks",
     title: "The Wish",
-    price: "20.06",
+    price: "$20.06",
     image:
       "https://storage.googleapis.com/du-prd/books/images/9781538728628.jpg",
     Description:
