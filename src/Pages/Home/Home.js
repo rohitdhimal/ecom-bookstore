@@ -1,8 +1,7 @@
 import { Fragment } from "react";
-
+import { NavLink } from "react-router-dom";
 import Header from '../../Components/Header/Header';
 import ItemsList from "../../Components/ItemsList/ItemsList";
-
 
 import './Home.css';
 
@@ -25,7 +24,7 @@ const Home = () => {
                   href="/"
                   className=" ml-1 md:ml-12 sm:ml-3 px-3 bg-green-900 py-2 text-md rounded-lg hover:bg-green-700 duration-300 cursor-pointer text-white"
                 >
-                  Shop Now
+                  <NavLink to={"/Products"}>Shop Now</NavLink>
                 </button>
               </div>
               <div className="absolute md:w-1/2 sm:w-full top-0 right-0 hidden-mobile">
@@ -38,115 +37,6 @@ const Home = () => {
             </div>
           </div>
           <ItemsList />
-
-          {/* <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8 bg-gray-50 shadow-lg mb-20">
-            <p className="text-xl font-bold bottom-line">
-              Popular{" "}
-              <span className="float-right hover:text-blue-700 cursor-pointer">
-                {" "}
-                View More{" "}
-              </span>{" "}
-              <span className="bottom-line-underline"></span>
-            </p>
-            <div className="flex justify-evenly gap-10 md:flex-row sm:flex-col">
-              <div className=" w-full flex-wrap flex justify-center items-center">
-                <div className="w-60 p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-3xl">
-                  <img
-                    className="h-40 object-cover rounded-xl"
-                    src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
-                    alt=""
-                  />
-                  <div className="p-2">
-                    <h2 className="font-bold text-lg mb-2 ">
-                      The Lovely Paris
-                    </h2>
-                    <p className="text-sm text-gray-600">Anna Hathway</p>
-                  </div>
-                  <div className="m-2">
-                    <a
-                      role="button"
-                      href="/"
-                      className="text-white bg-green-600 px-3 py-1 rounded-md hover:bg-green-700"
-                    >
-                      Add To Cart 
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className=" w-full gap-4 flex-wrap flex justify-center items-center">
-                <div className="w-60 p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
-                  <img
-                    className="h-40 object-cover rounded-xl"
-                    src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
-                    alt=""
-                  />
-                  <div className="p-2">
-                    <h2 className="font-bold text-lg mb-2 ">The New Book</h2>
-                    <p className="text-sm text-gray-600">
-                      Hakim Zabra
-                    </p>
-                  </div>
-                  <div className="m-2">
-                    <a
-                      role="button"
-                      href="/"
-                      className="text-white bg-green-600 px-3 py-1 rounded-md hover:bg-green-700"
-                    >
-                      Add To Cart
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className=" w-full gap-4 flex-wrap flex justify-center items-center">
-                <div className="w-60 p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
-                  <img
-                    className="h-40 object-cover rounded-xl"
-                    src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
-                    alt=""
-                  />
-                  <div className="p-2">
-                    <h2 className="font-bold text-lg mb-2 ">Modern Cinderella</h2>
-                    <p className="text-sm text-gray-600">
-                      Tim Howard
-                    </p>
-                  </div>
-                  <div className="m-2">
-                    <a
-                      role="button"
-                      href="/"
-                      className="text-white bg-green-600 px-3 py-1 rounded-md hover:bg-green-700"
-                    >
-                      Add To Cart
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className=" w-full gap-4 flex-wrap flex justify-center items-center">
-                <div className="w-60 p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
-                  <img
-                    className="h-40 object-cover rounded-xl"
-                    src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
-                    alt=""
-                  />
-                  <div className="p-2">
-                    <a href="/" className="font-bold text-lg mb-2 cursor-pointer text-green-800">How to get hired in 5 sec</a>
-                    <p className="text-sm text-green-600">
-                      Nina Santos
-                    </p>
-                  </div>
-                  <div className="m-2">
-                    <a
-                      role="button"
-                      href="/"
-                      className="text-white bg-green-600 px-3 py-1 rounded-md hover:bg-green-700"
-                    >
-                      Add To Cart
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> */}
         </main>
       </div>
     </Fragment>
