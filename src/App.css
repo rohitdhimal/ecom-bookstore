@@ -1,3 +1,16 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Mahee:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Imprima&display=swap');
+
+*{
+  font-family: 'Mukta Mahee', sans-serif;
 }
+
+.stylish-font1{
+  font-family: 'Nova Round', cursive;
+}
+
+.stylish-font2{
+  font-family: 'Imprima', sans-serif;
+}
+

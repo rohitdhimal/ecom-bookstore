@@ -1,0 +1,12 @@
+
+
+.text-3xl{
+    font-size: 30x;
+    font-weight: 900;
+}
+
+@media only screen and (max-width: 768px) {
+    .hidden-mobile{
+        visibility: hidden;
+    }
+}
